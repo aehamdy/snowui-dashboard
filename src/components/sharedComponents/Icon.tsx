@@ -1,9 +1,11 @@
+import { FiChevronRight } from "react-icons/fi";
 import {
   PiChartPieSliceFill,
   PiChatsTeardrop,
   PiFolder,
   PiIdentificationBadge,
   PiIdentificationCard,
+  PiNotebook,
   PiShoppingBagOpen,
   PiUsersThree,
 } from "react-icons/pi";
@@ -15,7 +17,9 @@ export type IconName =
   | "identification-badge"
   | "identification-card"
   | "users-three"
-  | "chats-teardrop";
+  | "notebook"
+  | "chats-teardrop"
+  | "chevron-right";
 
 const iconMap = {
   "chartpie-slice": PiChartPieSliceFill,
@@ -24,7 +28,9 @@ const iconMap = {
   "identification-badge": PiIdentificationBadge,
   "identification-card": PiIdentificationCard,
   "users-three": PiUsersThree,
+  notebook: PiNotebook,
   "chats-teardrop": PiChatsTeardrop,
+  "chevron-right": FiChevronRight,
 };
 interface IconProps {
   name: IconName;
