@@ -63,6 +63,7 @@ function MainContentTopBar() {
       <div className="flex items-center gap-md">
         {tabs.map((tab) => (
           <button
+            key={tab.id}
             className={`pb-1 ${
               tab.isActive
                 ? "text-dark-primary  dark:text-accent border-b"
@@ -76,7 +77,10 @@ function MainContentTopBar() {
 
       <div className="flex items-center gap-sm">
         {buttons.map((button) => (
-          <button className="flex items-center gap-1 py-xs px-sm text-dark-tertiary hover:text-dark-secondary dark:text-light-tertiary hover:dark:text-light-secondary bg-dark-faint dark:bg-light-soft rounded-regular duration-300">
+          <button
+            key={button.id}
+            className="flex items-center gap-1 py-xs px-sm text-dark-tertiary hover:text-dark-secondary dark:text-light-tertiary hover:dark:text-light-secondary bg-dark-faint dark:bg-light-soft rounded-regular duration-300"
+          >
             {button.icon && <Icon name={button.icon} size="16" className="" />}
             {button.label && button.label}
           </button>

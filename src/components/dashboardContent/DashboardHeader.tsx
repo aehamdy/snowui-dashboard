@@ -1,11 +1,19 @@
+import { useSidebar } from "../../contexts/SidebarContext";
+import { useUtilitiesPanel } from "../../contexts/UtilitiesPanelContext";
 import Icon from "../sharedComponents/Icon";
 
 function DashboardHeader() {
+  const { toggle: toggleSidebar } = useSidebar();
+  const { toggle: toggleUtilities } = useUtilitiesPanel();
+
   return (
     <header className="flex justify-between items-center py-spaced px-xl border-b border-b-dark-faint dark:border-b-light-soft">
       <div className="flex items-center gap-lg">
         <div className="flex items-center gap-sm">
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
+          <button
+            onClick={toggleSidebar}
+            className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300"
+          >
             <Icon name="sidebar" className="" />
           </button>
 
@@ -52,13 +60,19 @@ function DashboardHeader() {
           <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="sun" className="" />
           </button>
+
           <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="clock-counter-clockwise" className="" />
           </button>
+
           <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="bell" className="" />
           </button>
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
+
+          <button
+            onClick={toggleUtilities}
+            className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300"
+          >
             <Icon name="sidebar" className="" />
           </button>
         </div>

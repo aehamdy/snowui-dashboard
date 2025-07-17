@@ -16,25 +16,25 @@ const filesList: FileItem[] = [
     label: "5.6 MB / Just now / Karina Clark",
   },
   {
-    id: 1,
+    id: 2,
     icon: "jpg-file",
     name: "Dashboard-design.jpg",
     label: "2.3 MB / 59 minutes ago / Marcus Blake",
   },
   {
-    id: 1,
+    id: 3,
     icon: "pdf-file",
     name: "Completed Project Stylings.pdf",
     label: "4.6 MB / 12 hours ago / Terry Barry",
   },
   {
-    id: 1,
+    id: 4,
     icon: "xls-file",
     name: "Create Project Wireframes.xls",
     label: "1.2 MB / Today, 11:59 AM / Roth Bloom",
   },
   {
-    id: 1,
+    id: 5,
     icon: "pdf-file",
     name: "Project tech requirements.pdf",
     label: "2.8 MB / Yesterday / Natali Craig",
@@ -45,7 +45,7 @@ function LatestFilesList() {
   return (
     <ul className="w-full space-y-narrow">
       {filesList.map((file) => (
-        <li className="group flex justify-between items-center">
+        <li key={file.id} className="group flex justify-between items-center">
           <div className="flex items-center gap-sm">
             <div className="p-[6px] text-dark-primary bg-[#E6F1FD] rounded-medium">
               <Icon name={file.icon} className="" />

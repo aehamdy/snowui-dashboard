@@ -38,7 +38,7 @@ function ImagesStack() {
           key={user.id}
           className={`w-7 h-7 rounded-full dark:border-dark-background ${
             index !== 0 ? "-ml-4" : ""
-          } overflow-hidden z-${10 - index}`}
+          } overflow-hidden z-${10 - user.id}`}
         >
           <img
             src={user.image}
