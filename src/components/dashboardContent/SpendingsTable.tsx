@@ -1,107 +1,52 @@
 import userImage from "../../assets/user-image.png";
-import user6Image from "../../assets/user6-image.png";
-import user7Image from "../../assets/user7-image.png";
-import user8Image from "../../assets/user8-image.png";
-import user9Image from "../../assets/user9-image.png";
+import useFetchData from "../../hooks/useFetchData";
 
 const statusColors = {
-  "In Progress": {
-    dot: "bg-status-inprogress",
-    text: "text-status-inprogress",
-  },
-  Complete: {
-    dot: "bg-status-complete",
-    text: "text-status-complete",
-  },
-  Pending: {
+  pending: {
     dot: "bg-status-pending",
     text: "text-status-pending",
   },
-  Approved: {
+  completed: {
+    dot: "bg-status-complete",
+    text: "text-status-complete",
+  },
+  approved: {
     dot: "bg-status-approved",
     text: "text-status-approved",
   },
-  Rejected: {
+  rejected: {
     dot: "bg-status-rejected",
     text: "text-status-rejected",
   },
-};
+} as const;
 
-type SpendingStatus = keyof typeof statusColors;
-
-type HeaderItem = {
-  id: number;
-  label: string;
-};
-
-type SpendingItem = {
-  id: number;
-  image: string;
-  name: string;
-  date: string;
-  amount: string;
-  status: SpendingStatus;
-};
-
-const headers: HeaderItem[] = [
-  { id: 1, label: "Manager" },
-  { id: 2, label: "Date" },
-  { id: 3, label: "Amount" },
-  { id: 4, label: "Status" },
-];
-
-const spendingsList: SpendingItem[] = [
-  {
-    id: 1,
-    image: userImage,
-    name: "ByeWind",
-    date: "Jun 24, 2025",
-    amount: "942.00",
-    status: "In Progress",
-  },
-  {
-    id: 2,
-    image: user6Image,
-    name: "Natali Craig",
-    date: "Mar 10, 2025",
-    amount: "881.00",
-    status: "Complete",
-  },
-  {
-    id: 3,
-    image: user7Image,
-    name: "Drew Cano",
-    date: "Nov 10, 2025",
-    amount: "409.00",
-    status: "Pending",
-  },
-  {
-    id: 4,
-    image: user8Image,
-    name: "Orlando Diggs",
-    date: "Dec 20, 2025",
-    amount: "953.00",
-    status: "Approved",
-  },
-  {
-    id: 5,
-    image: user9Image,
-    name: "Andi Lane",
-    date: "Jul 25, 2025",
-    amount: "907.00",
-    status: "Rejected",
-  },
-];
+const headers = ["Client", "Date", "Total", "Status"];
 
 function SpendingsTable() {
+  const { data, loading, error } = useFetchData();
+
+  console.log(data);
+
+  if (loading) {
+    return <p className="text-sm text-gray-500">Loading...</p>;
+  }
+
+  if (error) {
+    return (
+      <p className="text-sm text-red-500">
+        Failed to fetch data: {error.message}
+      </p>
+    );
+  }
+
   return (
     <div className="relative w-full">
       <table className="w-full text-tiny font-light">
         <thead className="sticky top-0 text-dark-tertiary dark:text-light-tertiary border-b z-10">
           <tr>
-            {headers.map((header) => (
-              <th key={header.id} className="text-start font-regular py-xs">
-                {header.label}
+            {headers.map((label, index) => (
+              <th key={index} className="text-start font-regular py-xs">
+                {label}
               </th>
             ))}
           </tr>
@@ -111,31 +56,58 @@ function SpendingsTable() {
       <div className="max-h-[140px] overflow-y-auto">
         <table className="w-full text-tiny font-light">
           <tbody>
-            {spendingsList.map((item) => {
-              const statusColor = statusColors[item.status];
+            {data?.map((item) => {
+              const status =
+                item.status?.toLowerCase() as keyof typeof statusColors;
+              const statusColor = statusColors[status];
+
               return (
                 <tr
-                  key={item.id}
+                  key={item._id}
                   className="text-dark-primary dark:text-light-primary"
                 >
                   <td className="py-sm">
                     <div className="flex items-center gap-sm">
                       <div className="w-[1.5rem] h-[1.5rem] rounded-circle overflow-hidden">
-                        <img src={item.image} alt={`${item.name} avatar`} />
+                        <img
+                          src={item.tubeImage || userImage}
+                          alt={`${item.clientName || "Client"} avatar`}
+                        />
                       </div>
-                      <p>{item.name}</p>
+                      <p>{item.clientName || "Unnamed"}</p>
                     </div>
                   </td>
-                  <td className="text-start py-sm">{item.date}</td>
-                  <td className="text-start py-sm">${item.amount}</td>
+
+                  <td className="text-start py-sm">
+                    {item.date
+                      ? new Date(item.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })
+                      : "-"}
+                  </td>
+
+                  <td className="text-start py-sm">${item.total ?? "N/A"}</td>
+
                   <td className="py-sm">
                     <div className="flex items-center gap-2">
-                      <span
-                        className={`w-2 h-2 rounded-circle ${statusColor.dot}`}
-                      ></span>
-                      <span className={`${statusColor.text}`}>
-                        {item.status}
-                      </span>
+                      {statusColor ? (
+                        <>
+                          <span
+                            className={`w-2 h-2 rounded-circle ${statusColor.dot}`}
+                          ></span>
+                          <span className={`${statusColor.text}`}>
+                            {item.status}
+                          </span>
+                        </>
+                      ) : (
+                        <span>
+                          {item.status &&
+                            item.status.charAt(0).toUpperCase() +
+                              item.status.slice(1).toLowerCase()}
+                        </span>
+                      )}
                     </div>
                   </td>
                 </tr>
