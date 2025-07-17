@@ -1,12 +1,24 @@
 import { FiChevronRight } from "react-icons/fi";
 import {
+  PiBell,
   PiChartPieSliceFill,
   PiChatsTeardrop,
+  PiClockCounterClockwise,
+  PiDotsThreeOutlineFill,
+  PiDownloadSimple,
+  PiFileJpg,
+  PiFilePdf,
+  PiFileXls,
   PiFolder,
   PiIdentificationBadge,
   PiIdentificationCard,
+  PiMagnifyingGlass,
   PiNotebook,
+  PiPlus,
   PiShoppingBagOpen,
+  PiSidebar,
+  PiStar,
+  PiSunDim,
   PiUsersThree,
 } from "react-icons/pi";
 
@@ -19,7 +31,19 @@ export type IconName =
   | "users-three"
   | "notebook"
   | "chats-teardrop"
-  | "chevron-right";
+  | "chevron-right"
+  | "star"
+  | "sidebar"
+  | "magnifying-glass"
+  | "sun"
+  | "bell"
+  | "clock-counter-clockwise"
+  | "plus"
+  | "three-dots"
+  | "download"
+  | "pdf-file"
+  | "jpg-file"
+  | "xls-file";
 
 const iconMap = {
   "chartpie-slice": PiChartPieSliceFill,
@@ -31,6 +55,18 @@ const iconMap = {
   notebook: PiNotebook,
   "chats-teardrop": PiChatsTeardrop,
   "chevron-right": FiChevronRight,
+  star: PiStar,
+  sidebar: PiSidebar,
+  "magnifying-glass": PiMagnifyingGlass,
+  sun: PiSunDim,
+  bell: PiBell,
+  "clock-counter-clockwise": PiClockCounterClockwise,
+  plus: PiPlus,
+  "three-dots": PiDotsThreeOutlineFill,
+  download: PiDownloadSimple,
+  "pdf-file": PiFilePdf,
+  "jpg-file": PiFileJpg,
+  "xls-file": PiFileXls,
 };
 interface IconProps {
   name: IconName;
