@@ -11,7 +11,7 @@ function Sidebar() {
 
   return (
     <aside
-      className={`flex flex-col gap-narrow h-full p-lg border-e border-e-dark-faint dark:border-e-light-soft ${
+      className={`flex flex-col gap-narrow h-full py-lg px-md border-e border-e-dark-faint dark:border-e-light-soft ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >

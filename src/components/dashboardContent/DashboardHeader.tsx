@@ -7,7 +7,7 @@ function DashboardHeader() {
   const { toggle: toggleUtilities } = useUtilitiesPanel();
 
   return (
-    <header className="flex justify-between items-center py-spaced px-xl border-b border-b-dark-faint dark:border-b-light-soft">
+    <header className="flex justify-between items-center py-md px-xl border-b border-b-dark-faint dark:border-b-light-soft">
       <div className="flex items-center gap-lg">
         <div className="flex items-center gap-sm">
           <button

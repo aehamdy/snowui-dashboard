@@ -10,7 +10,7 @@ function UtilitySidebar() {
 
   return (
     <aside
-      className={`flex flex-col gap-narrow h-full p-md border-s border-s-dark-faint dark:border-s-light-soft ${
+      className={`flex flex-col gap-narrow h-full py-lg px-md border-s border-s-dark-faint dark:border-s-light-soft ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
