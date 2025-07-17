@@ -32,12 +32,12 @@ function ImagesStack() {
   const remainingCount = users.length - visibleUsers.length;
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col lg:flex-row lg:items-center">
       {visibleUsers.map((user, index) => (
         <div
           key={user.id}
           className={`w-7 h-7 rounded-full dark:border-dark-background ${
-            index !== 0 ? "-ml-4" : ""
+            index !== 0 ? "-mt-4 lg:mt-0 lg:-ml-4" : ""
           } overflow-hidden z-${10 - user.id}`}
         >
           <img
@@ -50,7 +50,7 @@ function ImagesStack() {
 
       {remainingCount > 0 && (
         <div
-          className={`flex items-center justify-center w-7 h-7 -ml-3 text-xs font-semibold text-dark-primary bg-[#F9F9FA] dark:bg-[#EDEEFC] border border-light-primary dark:border-transparent rounded-circle z-0`}
+          className={`flex items-center justify-center w-7 h-7 -mt-3 lg:mt-0 lg:-ml-3 text-xs font-semibold text-dark-primary bg-[#F9F9FA] dark:bg-[#EDEEFC] border border-light-primary dark:border-transparent rounded-circle z-0`}
         >
           +{remainingCount}
         </div>

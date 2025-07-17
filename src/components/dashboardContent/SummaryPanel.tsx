@@ -1,29 +1,28 @@
+import APP_CONSTANTS from "../../constants";
+import Logo from "../sharedComponents/Logo";
 import Panel from "../sharedComponents/Panel";
-import Logo from "../../assets/logo.png";
 import ImagesStack from "./ImagesStack";
+import ProgressStatus from "./ProgressStatus";
 
 function SummaryPanel() {
-  const inProgressVal = 51;
-
   return (
     <Panel>
-      <div className="flex justify-between items-center">
-        <h3 className="mb-md text-heading font-strong">SnowUI</h3>
-        <img src={Logo} alt="snow ui logo" />
+      <div className="flex justify-between items-center mb-5 lg:mb-0">
+        <h3 className="mb-md text-heading font-strong">{APP_CONSTANTS.NAME}</h3>
+
+        <div className="hidden lg:flex ">
+          <Logo />
+        </div>
+
+        <div className="lg:hidden">
+          <ProgressStatus />
+        </div>
       </div>
 
       <div className="flex justify-between items-center">
         <div className="flex justify-between items-center gap-xl">
-          <div className="flex flex-col items-start gap-1">
-            <p className="font-extralight">Status</p>
-
-            <div
-              className={`py-1 px-[5.5px] bg-linear-to-r from-0% to-[${inProgressVal}%] from-accent to-dark-faint from-[${inProgressVal}%] to-100% dark:bg-light-soft rounded-regular`}
-            >
-              <p className="font-strong">
-                In Progress <span className="">/</span> {inProgressVal}%
-              </p>
-            </div>
+          <div className="hidden lg:flex">
+            <ProgressStatus />
           </div>
 
           <div className="flex flex-col items-start gap-1">

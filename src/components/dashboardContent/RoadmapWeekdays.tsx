@@ -10,7 +10,7 @@ const week = [
 
 function RoadmapWeekdays() {
   return (
-    <div className="flex justify-between items-center gap-[24.5px]">
+    <div className="flex justify-between items-center w-full">
       {week.map((day) => (
         <div
           key={day.id}
