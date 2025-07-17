@@ -1,7 +1,8 @@
 import "./App.css";
+import AppLayout from "./layout/AppLayout";
 
 function App() {
-  return <h1 className="responsive-text">Hello world!</h1>;
+  return <AppLayout />;
 }
 
 export default App;

@@ -18,7 +18,7 @@ function SummaryPanel() {
             <p className="font-extralight">Status</p>
 
             <div
-              className={`py-1 px-[5.5px] bg-linear-to-r to-[${inProgressVal}%] from-accent to-dark-faint from-[${inProgressVal}%] dark:bg-light-soft rounded-regular`}
+              className={`py-1 px-[5.5px] bg-linear-to-r from-0% to-[${inProgressVal}%] from-accent to-dark-faint from-[${inProgressVal}%] to-100% dark:bg-light-soft rounded-regular`}
             >
               <p className="font-strong">
                 In Progress <span className="">/</span> {inProgressVal}%

@@ -41,7 +41,7 @@ function RoadmapAchievements() {
   return (
     <ul className="space-y-compact">
       {achievements.map((item) => (
-        <li className="flex items-start gap-1.5">
+        <li key={item.id} className="flex items-start gap-1.5">
           <div className="rounded-circle overflow-hidden">
             <img src={item.image} alt="user image" />
           </div>
