@@ -3,7 +3,7 @@ import MainContentTopBar from "./MainContentTopBar";
 
 function MainContent() {
   return (
-    <section className="flex flex-col gap-spaced p-xl">
+    <section className="flex flex-col gap-spaced py-roomy px-xl">
       <MainContentTopBar />
       <DashboardPanels />
     </section>
