@@ -6,7 +6,7 @@ type PanelProps = {
 
 function Panel({ children }: PanelProps) {
   return (
-    <section className="p-lg bg-dark-low dark:bg-light-low rounded-large">
+    <section className="p-md lg:p-lg bg-dark-low dark:bg-light-low rounded-large">
       {children}
     </section>
   );

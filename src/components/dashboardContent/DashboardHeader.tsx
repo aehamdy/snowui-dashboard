@@ -18,7 +18,7 @@ function DashboardHeader() {
   };
 
   return (
-    <header className="flex justify-between items-center py-md px-xl border-b border-b-dark-faint dark:border-b-light-soft">
+    <header className="flex justify-between items-center py-compact lg:py-md px-sm lg:px-xl border-b border-b-dark-faint dark:border-b-light-soft">
       <div className="flex items-center gap-lg">
         <div className="flex items-center gap-sm">
           <button
@@ -28,12 +28,12 @@ function DashboardHeader() {
             <Icon name="sidebar" className="" />
           </button>
 
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
+          <button className="hidden md:flex p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="star" className="" />
           </button>
         </div>
 
-        <div className="flex items-center gap-md">
+        <div className="hidden lg:flex lg:items-center lg:gap-md">
           <button className="text-dark-tertiary hover:text-dark-secondary dark:text-light-tertiary">
             Dashboard
           </button>
@@ -75,11 +75,11 @@ function DashboardHeader() {
             <Icon name={isDark ? "moon" : "sun"} className="" />
           </button>
 
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
+          <button className="hidden lg:flex p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="clock-counter-clockwise" className="" />
           </button>
 
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
+          <button className="hidden lg:flex p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
             <Icon name="bell" className="" />
           </button>
 

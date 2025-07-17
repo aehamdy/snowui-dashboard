@@ -59,8 +59,8 @@ const buttons: ButtonItem[] = [
 
 function MainContentTopBar() {
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex items-center gap-md">
+    <div className="flex flex-col-reverse lg:flex-row lg:justify-between items-center gap-3 lg:gap-0">
+      <div className="flex items-center gap-compact lg:gap-md">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -75,7 +75,7 @@ function MainContentTopBar() {
         ))}
       </div>
 
-      <div className="flex items-center gap-sm">
+      <div className="flex items-center gap-sm ms-auto">
         {buttons.map((button) => (
           <button
             key={button.id}

@@ -3,7 +3,7 @@ import MainContent from "./dashboardContent/MainContent";
 
 function DashboardContent() {
   return (
-    <main className="col-span-8">
+    <main className="">
       <DashboardHeader />
       <MainContent />
     </main>

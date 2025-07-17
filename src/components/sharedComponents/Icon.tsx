@@ -1,4 +1,4 @@
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import {
   PiBell,
   PiBroadcast,
@@ -36,6 +36,7 @@ export type IconName =
   | "notebook"
   | "chats-teardrop"
   | "chevron-right"
+  | "chevron-left"
   | "star"
   | "sidebar"
   | "magnifying-glass"
@@ -63,6 +64,7 @@ const iconMap = {
   notebook: PiNotebook,
   "chats-teardrop": PiChatsTeardrop,
   "chevron-right": FiChevronRight,
+  "chevron-left": FiChevronLeft,
   star: PiStar,
   sidebar: PiSidebar,
   "magnifying-glass": PiMagnifyingGlass,

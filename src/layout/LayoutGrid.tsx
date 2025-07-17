@@ -26,19 +26,21 @@ function LayoutGrid() {
   };
 
   return (
-    <main className="grid grid-cols-12 h-dvh text-small font-regular text-dark-primary dark:text-light-primary transition-all duration-300">
+    <main className="relative grid grid-cols-12 h-dvh text-small font-regular text-dark-primary dark:text-light-primary transition-all duration-300">
       {isSidebarVisible && (
-        <div className="transition-all duration-300 col-span-2 overflow-hidden">
+        <div className="col-span-2 h-full absolute start-0 lg:relative bg-light-primary dark:bg-[#2a2a2a] overflow-hidden transition-all duration-300 z-20 lg:z-0">
           <Sidebar />
         </div>
       )}
 
-      <div className={`transition-all duration-300 ${getDashboardColClass()}`}>
+      <div
+        className={`${getDashboardColClass()} bg-light-primary dark:bg-[#2a2a2a] transition-all duration-300`}
+      >
         <DashboardContent />
       </div>
 
       {isUtilityVisible && (
-        <div className="transition-all duration-300 col-span-2 overflow-hidden">
+        <div className="col-span-2 h-full absolute end-0 lg:relative bg-light-primary dark:bg-[#2a2a2a] overflow-hidden transition-all duration-300 z-20 lg:z-0">
           <UtilitySidebar />
         </div>
       )}

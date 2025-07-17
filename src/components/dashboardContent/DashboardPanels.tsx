@@ -5,10 +5,10 @@ import SummaryPanel from "./SummaryPanel";
 
 function DashboardPanels() {
   return (
-    <section className="space-y-xl">
+    <section className="space-y-cozy lg:space-y-xl">
       <SummaryPanel />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-cozy lg:gap-xl">
         <RoadmapPanel />
         <LatestFilesPanel />
       </div>
