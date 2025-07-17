@@ -15,6 +15,7 @@ import {
   PiIdentificationBadge,
   PiIdentificationCard,
   PiMagnifyingGlass,
+  PiMoonStarsLight,
   PiNotebook,
   PiPlus,
   PiShoppingBagOpen,
@@ -39,6 +40,7 @@ export type IconName =
   | "sidebar"
   | "magnifying-glass"
   | "sun"
+  | "moon"
   | "bell"
   | "clock-counter-clockwise"
   | "plus"
@@ -65,6 +67,7 @@ const iconMap = {
   sidebar: PiSidebar,
   "magnifying-glass": PiMagnifyingGlass,
   sun: PiSunDim,
+  moon: PiMoonStarsLight,
   bell: PiBell,
   "clock-counter-clockwise": PiClockCounterClockwise,
   plus: PiPlus,

@@ -1,10 +1,21 @@
+import { useState } from "react";
 import { useSidebar } from "../../contexts/SidebarContext";
 import { useUtilitiesPanel } from "../../contexts/UtilitiesPanelContext";
+import toggleTheme from "../../utils/toggleTheme";
 import Icon from "../sharedComponents/Icon";
+import APP_CONSTANTS from "../../constants";
 
 function DashboardHeader() {
   const { toggle: toggleSidebar } = useSidebar();
   const { toggle: toggleUtilities } = useUtilitiesPanel();
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains(APP_CONSTANTS.DARK_THEME_VALUE)
+  );
+
+  const handleThemeToggle = () => {
+    toggleTheme();
+    setIsDark((prev) => !prev);
+  };
 
   return (
     <header className="flex justify-between items-center py-md px-xl border-b border-b-dark-faint dark:border-b-light-soft">
@@ -57,8 +68,11 @@ function DashboardHeader() {
         </div>
 
         <div className="flex items-center gap-sm">
-          <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
-            <Icon name="sun" className="" />
+          <button
+            onClick={handleThemeToggle}
+            className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300"
+          >
+            <Icon name={isDark ? "moon" : "sun"} className="" />
           </button>
 
           <button className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
