@@ -1,6 +1,8 @@
 import { FiChevronRight } from "react-icons/fi";
 import {
   PiBell,
+  PiBroadcast,
+  PiBugBeetle,
   PiChartPieSliceFill,
   PiChatsTeardrop,
   PiClockCounterClockwise,
@@ -19,6 +21,7 @@ import {
   PiSidebar,
   PiStar,
   PiSunDim,
+  PiUser,
   PiUsersThree,
 } from "react-icons/pi";
 
@@ -43,7 +46,10 @@ export type IconName =
   | "download"
   | "pdf-file"
   | "jpg-file"
-  | "xls-file";
+  | "xls-file"
+  | "bug"
+  | "user"
+  | "broadcast";
 
 const iconMap = {
   "chartpie-slice": PiChartPieSliceFill,
@@ -67,6 +73,9 @@ const iconMap = {
   "pdf-file": PiFilePdf,
   "jpg-file": PiFileJpg,
   "xls-file": PiFileXls,
+  bug: PiBugBeetle,
+  user: PiUser,
+  broadcast: PiBroadcast,
 };
 interface IconProps {
   name: IconName;
