@@ -1,5 +1,5 @@
 import profileImage from "../../assets/user-image.png";
-import { useSidebar } from "../../contexts/SidebarContext";
+import { useSidebar } from "../../hooks/useSidebar";
 import Icon from "../sharedComponents/Icon";
 
 function UserInfo() {

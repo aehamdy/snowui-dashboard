@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useSidebar } from "../../contexts/SidebarContext";
-import { useUtilitiesPanel } from "../../contexts/UtilitiesPanelContext";
 import toggleTheme from "../../utils/toggleTheme";
 import Icon from "../sharedComponents/Icon";
 import APP_CONSTANTS from "../../constants";
+import SearchTrigger from "./SearchTrigger";
+import { useSidebar } from "../../hooks/useSidebar";
+import { useUtilitiesPanel } from "../../hooks/useUtilitiesPanel";
 
 function DashboardHeader() {
   const { toggle: toggleSidebar } = useSidebar();
@@ -47,25 +48,7 @@ function DashboardHeader() {
       </div>
 
       <div className="flex items-center gap-spaced">
-        <div className="">
-          <label
-            htmlFor="search-input"
-            className="flex max-w-[160px] py-xs px-sm text-dark-muted dark:text-light-tertiary bg-dark-faint dark:bg-light-soft rounded-regular overflow-hidden"
-          >
-            <Icon name="magnifying-glass" className="me-1" />
-            <input
-              type="text"
-              name=""
-              id="search-input"
-              placeholder="Search"
-              className="w-full text-dark-muted dark:text-light-tertiary placeholder-dark-muted dark:placeholder-light-tertiary outline-none"
-            />
-
-            <span className="flex items-center px-2 text-[10px] text-dark-muted dark:text-light-tertiary dark:bg-dark-low border border-dark-low rounded-small">
-              /
-            </span>
-          </label>
-        </div>
+        <SearchTrigger />
 
         <div className="flex items-center gap-sm">
           <button

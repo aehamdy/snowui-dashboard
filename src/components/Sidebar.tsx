@@ -1,4 +1,4 @@
-import { useSidebar } from "../contexts/SidebarContext";
+import { useSidebar } from "../hooks/useSidebar";
 import FavoritesList from "./sidebarWrapper/FavoritesList";
 import SidebarNavigation from "./sidebarWrapper/SidebarNavigation";
 import SidebarTabs from "./sidebarWrapper/SidebarTabs";

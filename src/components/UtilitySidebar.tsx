@@ -1,4 +1,4 @@
-import { useUtilitiesPanel } from "../contexts/UtilitiesPanelContext";
+import { useUtilitiesPanel } from "../hooks/useUtilitiesPanel";
 import Icon from "./sharedComponents/Icon";
 import Activities from "./utilitiesWrapper/Activities";
 import Contacts from "./utilitiesWrapper/Contacts";
