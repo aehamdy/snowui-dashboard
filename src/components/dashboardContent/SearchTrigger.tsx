@@ -1,8 +1,21 @@
+import { useEffect } from "react";
 import { useSearchPanel } from "../../hooks/useSearchPanel";
 import Icon from "../sharedComponents/Icon";
 
 function SearchTrigger() {
   const { openSearchPanel } = useSearchPanel();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        openSearchPanel();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [openSearchPanel]);
 
   return (
     <button
