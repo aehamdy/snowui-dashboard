@@ -25,8 +25,6 @@ const headers = ["Client", "Date", "Total", "Status"];
 function SpendingsTable() {
   const { data, loading, error } = useFetchData();
 
-  console.log(data);
-
   if (loading) {
     return <p className="text-sm text-gray-500">Loading...</p>;
   }

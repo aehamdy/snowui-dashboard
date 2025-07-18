@@ -25,7 +25,7 @@ export const UtilitiesPanelProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const toggle = () => setIsVisible((prev) => !prev);
 
   return (
