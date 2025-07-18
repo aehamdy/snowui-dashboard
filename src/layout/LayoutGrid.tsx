@@ -6,8 +6,9 @@ import UtilitySidebar from "../components/UtilitySidebar";
 import { useEffect } from "react";
 
 function LayoutGrid() {
-  const { isVisible: isSidebarVisible } = useSidebar();
-  const { isVisible: isUtilityVisible } = useUtilitiesPanel();
+  const { isVisible: isSidebarVisible, toggle: toggleSidebar } = useSidebar();
+  const { isVisible: isUtilityVisible, toggle: toggleUtilities } =
+    useUtilitiesPanel();
 
   const sidebarColSpan = isSidebarVisible ? 2 : 0;
   const utilityColSpan = isUtilityVisible ? 2 : 0;
@@ -33,6 +34,17 @@ function LayoutGrid() {
   };
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isSidebarVisible) toggleSidebar();
+        if (isUtilityVisible) toggleUtilities();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+  }, [isSidebarVisible, isUtilityVisible]);
+
+  useEffect(() => {
     const isSmallScreen = window.innerWidth < 1024;
 
     if (isSmallScreen && (isSidebarVisible || isUtilityVisible)) {
@@ -48,6 +60,16 @@ function LayoutGrid() {
 
   return (
     <main className="relative grid grid-cols-12 h-dvh text-small font-regular text-dark-primary dark:text-light-primary transition-all duration-300">
+      {(isSidebarVisible || isUtilityVisible) && (
+        <div
+          onClick={() => {
+            if (isSidebarVisible) toggleSidebar();
+            if (isUtilityVisible) toggleUtilities();
+          }}
+          className="lg:hidden absolute top-0 start-0 w-full h-full bg-dark-secondary z-30 transition-opacity duration-300 opacity-80"
+        ></div>
+      )}
+
       {isSidebarVisible && (
         <div
           className={`absolute lg:relative col-span-2 h-full top-0 start-0 bg-light-primary dark:bg-[#2a2a2a] z-40 lg:z-0`}
