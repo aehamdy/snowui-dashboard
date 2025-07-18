@@ -1,3 +1,4 @@
+import { API_URL } from "./../constants/index";
 import { useEffect, useState } from "react";
 
 type Session = {
@@ -17,12 +18,8 @@ function useFetchData() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(
-          "https://scopey.onrender.com/api/session/sessions"
-        );
+        const res = await fetch(API_URL);
         const json = await res.json();
-
-        // setData(json.sessions);
 
         const filteredData = json.sessions.filter(
           (item: Session) => item.clientName && item
