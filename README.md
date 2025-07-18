@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# SnowUI Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, user-friendly dashboard built with **React**, **TypeScript**, and **Tailwind CSS**, designed to showcase UI skills, API integration, reusable components, and interactivity.
 
-Currently, two official plugins are available:
+[Live Demo](https://snow-ui-dashboard.vercel.app/)
+[GitHub Repo](https://github.com/aehamdy/snowui-dashboard)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Data fetching** from a live API (`https://scopey.onrender.com/api/session/sessions`)
+- **Search functionality** by client name
+- **Light/Dark mode toggle**
+- **Reusable components** like `SearchInput`, `SearchPanel`, `SearchResults`, `Icon`, and layout components
+- **Keyboard shortcut**: `Ctrl + K` opens the search panel
+- **Fully responsive** layout (mobile & desktop support)
+- Display of session data including:
+- User image
+- Client name
+- Date
+- Amount
+- Status (pulled from API)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Technologies Used
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React** (with functional components and hooks)
+- **TypeScript** (static typing for reliability)
+- **Tailwind CSS** (for utility-first responsive styling)
+- **React Icons** (icon components)
+- **Vite** (for fast development build)
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/aehamdy/snowui-dashboard.git
+cd SnowUI-Dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 3. Create .env file
+
+touch .env
+Inside .env, add the following:
+VITE_API_URL=https://scopey.onrender.com/api/session/sessions
+
+### 4. Run the development server
+
+npm run dev
+Open http://localhost:5173 in your browser.
+
+## Notes
+
+    The search panel can be opened either by clicking the search bar or pressing Ctrl + K.
+
+    Contexts are used to manage UI states like opening and closing the search panel.
+
+    The project uses utility-first CSS with consistent naming and design tokens.
+
+    All statuses shown are fetched directly from the API (no fake generation needed).
+
+## Completed Requirements
+
+Recreated the layout from Figma using React + Tailwind
+
+Fetched and displayed data from a real API
+
+Implemented search functionality
+
+Used reusable components and clean structure
+
+Responsive on mobile and desktop
+
+Added light/dark mode toggle
+
+Bonus: keyboard shortcut for search panel
+
+## Contact
+
+Built with ❤️ by Ahmed Essam — GitHub: https://github.com/aehamdy
+
+---
+
+Let me know if you'd like to add badges (e.g. build passing, Vercel deployed), a license section, or contribution guidelines.
