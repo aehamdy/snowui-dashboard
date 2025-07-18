@@ -1,10 +1,14 @@
-import { useSearchPanel } from "../../hooks/useSearchPane.l";
+import { useState } from "react";
+import { useSearchPanel } from "../../hooks/useSearchPanel";
 import SearchInput from "../dashboardContent/SearchInput";
 import Icon from "./Icon";
 import SearchResults from "./SearchResults";
+import useUserSearch from "../../hooks/useUserSearch";
 
 function SearchPanel() {
   const { isSearchPanelOpen, closeSearchPanel } = useSearchPanel();
+  const [searchValue, setSearchValue] = useState("");
+  const { filteredList, search } = useUserSearch();
 
   return (
     <section
@@ -23,10 +27,14 @@ function SearchPanel() {
         </button>
 
         <div className="w-[100%] lg:w-1/2">
-          <SearchInput />
+          <SearchInput
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            onSearch={search}
+          />
         </div>
 
-        <SearchResults />
+        <SearchResults filteredList={filteredList} />
       </div>
     </section>
   );
