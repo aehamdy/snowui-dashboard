@@ -24,6 +24,7 @@ import {
   PiSunDim,
   PiUser,
   PiUsersThree,
+  PiXBold,
 } from "react-icons/pi";
 
 export type IconName =
@@ -52,7 +53,8 @@ export type IconName =
   | "xls-file"
   | "bug"
   | "user"
-  | "broadcast";
+  | "broadcast"
+  | "x";
 
 const iconMap = {
   "chartpie-slice": PiChartPieSliceFill,
@@ -81,6 +83,7 @@ const iconMap = {
   bug: PiBugBeetle,
   user: PiUser,
   broadcast: PiBroadcast,
+  x: PiXBold,
 };
 interface IconProps {
   name: IconName;
