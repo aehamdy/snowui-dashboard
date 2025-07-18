@@ -1,24 +1,22 @@
-import { useSidebar } from "../contexts/SidebarContext";
-import { useUtilitiesPanel } from "../contexts/UtilitiesPanelContext";
 import Sidebar from "../components/Sidebar";
 import DashboardContent from "../components/DashboardContent";
 import UtilitySidebar from "../components/UtilitySidebar";
 import { useEffect } from "react";
+import SearchPanel from "../components/sharedComponents/SearchPanel";
+import { useSearchPanel } from "../hooks/useSearchPanel";
+import { useSidebar } from "../hooks/useSidebar";
+import { useUtilitiesPanel } from "../hooks/useUtilitiesPanel";
+import Overlay from "../components/sharedComponents/Overlay";
 
 function LayoutGrid() {
   const { isVisible: isSidebarVisible, toggle: toggleSidebar } = useSidebar();
   const { isVisible: isUtilityVisible, toggle: toggleUtilities } =
     useUtilitiesPanel();
+  const { isSearchPanelOpen, closeSearchPanel } = useSearchPanel();
 
   const sidebarColSpan = isSidebarVisible ? 2 : 0;
   const utilityColSpan = isUtilityVisible ? 2 : 0;
   const dashboardColSpan = 12 - sidebarColSpan - utilityColSpan;
-
-  console.log({
-    sidebar: sidebarColSpan,
-    utility: utilityColSpan,
-    dashboard: dashboardColSpan,
-  });
 
   const getDashboardColClass = () => {
     switch (dashboardColSpan) {
@@ -38,6 +36,7 @@ function LayoutGrid() {
       if (e.key === "Escape") {
         if (isSidebarVisible) toggleSidebar();
         if (isUtilityVisible) toggleUtilities();
+        if (isSearchPanelOpen) closeSearchPanel();
       }
     };
 
@@ -60,15 +59,9 @@ function LayoutGrid() {
 
   return (
     <main className="relative grid grid-cols-12 h-dvh text-small font-regular text-dark-primary dark:text-light-primary transition-all duration-300">
-      {(isSidebarVisible || isUtilityVisible) && (
-        <div
-          onClick={() => {
-            if (isSidebarVisible) toggleSidebar();
-            if (isUtilityVisible) toggleUtilities();
-          }}
-          className="lg:hidden absolute top-0 start-0 w-full h-full bg-dark-secondary z-30 transition-opacity duration-300 opacity-80"
-        ></div>
-      )}
+      <Overlay />
+
+      <SearchPanel />
 
       {isSidebarVisible && (
         <div
