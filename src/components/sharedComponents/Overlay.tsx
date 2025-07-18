@@ -1,4 +1,4 @@
-import { useSearchPanel } from "../../hooks/useSearchPane.l";
+import { useSearchPanel } from "../../hooks/useSearchPanel";
 import { useSidebar } from "../../hooks/useSidebar";
 import { useUtilitiesPanel } from "../../hooks/useUtilitiesPanel";
 
