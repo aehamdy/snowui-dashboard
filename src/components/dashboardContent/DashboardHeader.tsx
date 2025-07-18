@@ -72,7 +72,7 @@ function DashboardHeader() {
             onClick={handleThemeToggle}
             className="p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300"
           >
-            <Icon name={isDark ? "moon" : "sun"} className="" />
+            <Icon name={isDark ? "sun" : "moon"} className="" />
           </button>
 
           <button className="hidden lg:flex p-[6.5px] hover:text-dark-tertiary hover:dark:text-light-tertiary duration-300">
