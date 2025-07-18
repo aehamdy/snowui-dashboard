@@ -5,14 +5,14 @@ import Contacts from "./utilitiesWrapper/Contacts";
 import Notifications from "./utilitiesWrapper/Notifications";
 
 function UtilitySidebar() {
-  const { toggle: toggleUtilities } = useUtilitiesPanel();
-  const { isVisible } = useUtilitiesPanel();
+  const { toggle: toggleUtilities, isVisible } = useUtilitiesPanel();
 
   if (!isVisible) return null;
 
   return (
     <aside
-      className={`flex flex-col gap-narrow py-lg px-md border-s border-s-dark-faint dark:border-s-light-soft ${
+      className={`
+      flex flex-col gap-narrow h-full py-lg px-md border-s border-s-dark-faint dark:border-s-light-soft ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
