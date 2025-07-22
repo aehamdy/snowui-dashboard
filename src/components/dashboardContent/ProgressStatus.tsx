@@ -5,7 +5,10 @@ function ProgressStatus() {
       <p className="font-extralight">Status</p>
 
       <div
-        className={`py-1 px-[5.5px] bg-linear-to-r from-0% to-[${inProgressVal}%] from-accent to-dark-faint from-[${inProgressVal}%] to-100% dark:bg-light-soft rounded-regular`}
+        className="py-1 px-[5.5px] bg-gradient-to-r from-accent to-dark-faint rounded-regular"
+        style={{
+          backgroundImage: `linear-gradient(to right, var(--tw-gradient-from) 0%, var(--tw-gradient-from) ${inProgressVal}%, var(--tw-gradient-to) ${inProgressVal}%, var(--tw-gradient-to) 100%)`,
+        }}
       >
         <p className="font-strong">
           In Progress <span className="">/</span> {inProgressVal}%
