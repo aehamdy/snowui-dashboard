@@ -31,17 +31,21 @@ function LayoutGrid() {
     }
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        if (isSidebarVisible) closeSidebar();
-        if (isUtilityVisible) closeUtilitiesPanel();
-        if (isSearchPanelOpen) closeSearchPanel();
-      }
-    };
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      if (isSidebarVisible) closeSidebar();
+      if (isUtilityVisible) closeUtilitiesPanel();
+      if (isSearchPanelOpen) closeSearchPanel();
+    }
+  };
 
+  useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
-  }, [isSidebarVisible, isUtilityVisible]);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isSidebarVisible, isUtilityVisible, isSearchPanelOpen]);
 
   useEffect(() => {
     const isSmallScreen = window.innerWidth < 1024;
