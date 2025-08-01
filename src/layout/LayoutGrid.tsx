@@ -9,7 +9,7 @@ import { useUtilitiesPanel } from "../hooks/useUtilitiesPanel";
 import Overlay from "../components/sharedComponents/Overlay";
 
 function LayoutGrid() {
-  const { isVisible: isSidebarVisible, toggle: toggleSidebar } = useSidebar();
+  const { isVisible: isSidebarVisible, closeSidebar } = useSidebar();
   const { isVisible: isUtilityVisible, toggle: toggleUtilities } =
     useUtilitiesPanel();
   const { isSearchPanelOpen, closeSearchPanel } = useSearchPanel();
@@ -34,7 +34,7 @@ function LayoutGrid() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        if (isSidebarVisible) toggleSidebar();
+        if (isSidebarVisible) closeSidebar();
         if (isUtilityVisible) toggleUtilities();
         if (isSearchPanelOpen) closeSearchPanel();
       }
